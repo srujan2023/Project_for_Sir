@@ -4,37 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <head>
     <style>
-     .header{
-        background-color: aqua;
-        height: 60px;
-        text-align: center;
-        padding-top: 25px;
-     }
-     .nav{
-        background-color: aquamarine;
-        padding: 30px;
+   
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header {
+      background-color: #30d1e3;
+      color: white;
+      padding: 20px;
+      margin-bottom: 0;
+    }
+
+    .nav {
+      background-color: #444;
+      padding: 10px 0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+      color: #ffd700;
+    }
+
+    .info {
+      background-color: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #34e7c0;
+    }
+
+    .footer img {
+      margin: 0 10px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .nav a {
         display: block;
-        margin: 0px;
-        height: 10px;
-     }
-     .info{
-        background-color: blanchedalmond;
-        text-align: center;
-     }
-     .img{
-        border-radius: 120px;
-     }
+        margin: 10px 0;
+      }
+
+      .info {
+        width: 95%;
+      }
+
+      .footer img {
+        width: 150px;
+      }
+    }
+
     </style>
 </head>
 <body>
     <center>
     <h2 class="header">My Portfolio Website</h2>
-</center>
+
     <nav class="nav">
         <a href="About.html">About</a>
         <a href="Eduction.html">Education</a>
-        <a href="Technical.html">Technical Skills</a>
+        <!-- <a href="Technical.html">Technical Skills</a> -->
         <a href="Project.html">Project</a>
         <a href="Contact.html">Contact</a>
         <a href="Certifiates.html">Certifiates</a>
