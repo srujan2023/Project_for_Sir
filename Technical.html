@@ -6,6 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-  <h1>This is a Technical Page</h1>  
+  <h1>This is a Technical Page:</h1>
+   <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>This API allows developers to access weather data from multiple sources.</p>
+    </section>
+
+    <section id="endpoints">
+      <h2>Endpoints</h2>
+      <ul>
+        <li><strong>GET /weather</strong> – Returns current weather data</li>
+        <li><strong>POST /forecast</strong> – Submits location for forecast</li>
+      </ul>
+    </section>
+
+    <section id="examples">
+      <h2>Examples</h2>
+      <pre><code>fetch('/weather?city=London')</code></pre>
+    </section>
+  </main>  
 </body>
 </html>
