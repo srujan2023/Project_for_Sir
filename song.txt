@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marquee with Song Rotation</title>
+  <style>
+    body {
+      background-image: url('your-image.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+    }
+    marquee {
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="audioPlayer" autoplay></audio>
+
+<marquee id="marqueeText" behavior="scroll" direction="left" height="50">
+  🎶 Welcome to the music zone!
+</marquee>
+
+<script>
+  const songs = [
+    'song1.mp3',
+    'song2.mp3',
+    'song3.mp3'
+  ];
+  const texts = [
+    '🎵 Enjoy the rhythm!',
+    '🎶 Let the beat drop!',
+    '🎧 Feel the vibe!'
+  ];
+
+  let round = 0;
+  const marquee = document.getElementById('marqueeText');
+  const audio = document.getElementById('audioPlayer');
+
+  function nextRound() {
+    round = (round + 1) % songs.length;
+    marquee.innerText = texts[round];
+    marquee.height = 50 + round * 20;
+    audio.src = songs[round];
+    audio.play();
+  }
+
+  audio.onended = nextRound;
+</script>
+
+</body>
+</html>

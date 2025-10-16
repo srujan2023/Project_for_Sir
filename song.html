@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RAJESHWARI Landing Page</title>
+<style>
+  body {
+    margin: 0;
+    background: #121212;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    gap: 15px;
+  }
+
+  .letter {
+    font-size: 100px; /* Adjusted size for the longer name */
+    font-weight: 900;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    user-select: none;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* Scenic images for each letter */
+  .R1 { background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'); }
+  .A1 { background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80'); }
+  .J  { background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80'); }
+  .E  { background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80'); }
+  .S  { background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80'); }
+  .H  { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'); }
+  .W  { background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80'); }
+  .A2 { background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80'); }
+  .R2 { background-image: url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80'); }
+  .I  { background-image: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80'); }
+
+  /* Animation keyframes: move from left to right */
+  @keyframes moveLeftToRight {
+    0% {
+      transform: translateX(-150px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150px);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="letter R1">S</div>
+  <div class="letter A1">R</div>
+  <div class="letter J">U</div>
+  <div class="letter E">J</div>
+  <div class="letter S">A</div>
+  <div class="letter H">N</div>
+  <div class="letter A2">A</div>
+  <div class="letter I">B</div>
+</div>
+
+<audio id="audioR" src="https://cdn.pixabay.com/audio/2023/02/27/audio_76a9e2b527.mp3"></audio>
+<audio id="audioI" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+<audio id="bgMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+
+<script>
+  const letters = document.querySelectorAll('.letter');
+  const audioR = document.getElementById('audioR');
+  const audioI = document.getElementById('audioI');
+  const bgMusic = document.getElementById('bgMusic'); // New background music element
+
+  const animationDuration = 4000; // 4 seconds
+
+  function animateLetters() {
+    // Clear previous animations to restart them
+    letters.forEach(letter => {
+      letter.style.animationName = '';
+    });
+
+    // We need a slight delay to allow the browser to remove the animation name before we re-add it.
+    setTimeout(() => {
+        // Animate all letters
+        letters.forEach(letter => {
+          letter.style.animationName = 'moveLeftToRight';
+        });
+        
+        // Stop any sounds from previous clicks
+        audioR.pause();
+        audioI.pause();
+
+        // Play the consistent background music for this rotation
+        bgMusic.currentTime = 0;
+        bgMusic.play();
+        
+    }, 10); // 10ms delay
+  }
+
+  // Start first animation + music
+  animateLetters();
+
+  // Repeat every animationDuration (4s)
+  setInterval(animateLetters, animationDuration);
+
+  // Optional: click a letter to play its associated music instantly
+  letters.forEach(letter => {
+    letter.addEventListener('click', () => {
+      if (letter.classList.contains('R1') || letter.classList.contains('R2')) {
+        bgMusic.pause(); // Pause main track
+        audioR.currentTime = 0;
+        audioR.play();
+      } else if (letter.classList.contains('I')) {
+        bgMusic.pause(); // Pause main track
+        audioI.currentTime = 0;
+        audioI.play();
+      } else {
+        console.log(`No music assigned for letter "${letter.textContent}"`);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
