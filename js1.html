@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+   
+ //1
+function AlternateLetters(name) {
+  let result = "";
+  for (let i = 0; i < name.length; i += 2) {
+    result += name[i];
+  }
+  console.log(result);
+}
+AlternateLetters("SRUJAN");
+
+
+        //2
+       let str = "srujan";
+       let length = str.length;
+        console.log(length);
+
+//3
+let name = "Srujan"; 
+let vowels = "aeiouAEIOU";
+let count = 0;
+
+for (let i = 0; i < name.length; i++) {
+    if (vowels.includes(name[i])) {
+        count++;
+    }
+}
+
+console.log("Number of vowels in your name:", count);
+
+      
+//4
+
+let name1 = "Srujan"; 
+let converted = "";
+
+for (let i = 0; i < name.length; i++) {
+    let ch = name1[i];
+    let code = ch.charCodeAt(0);
+
+    if (code >= 65 && code <= 90) {
+       
+        converted += String.fromCharCode(code + 32);
+    } else if (code >= 97 && code <= 122) {
+  
+        converted += String.fromCharCode(code - 32);
+    } else {
+       
+        converted += ch;
+    }
+}
+
+console.log("Converted name:", converted);
+
+
+//5
+let name2 = "Srujan";
+let result = "";
+
+for (let i = 0; i < name.length; i++) {
+    let ch = name2[i];
+    let code = ch.charCodeAt(0);
+
+    if (i % 2 === 0) {
+        if (code >= 97 && code <= 122) {
+            result += String.fromCharCode(code - 32);
+        } else {
+            result += ch; 
+        }
+    } else {
+        result += ch; 
+    }
+}
+
+console.log("Alternate characters in capital:", result);
+
+//6
+for (let i = 1; i <= 10; i++) {
+    console.log(i * 2);
+}
+
+//7
+let count1 = 0;
+let number = 1;
+
+while (count1 < 10) {
+    console.log(number);
+    number += 4; 
+    count1++;
+}
+
+//8
+let number1 = 53829;
+let maxDigit = 0;
+
+while (number1 > 0) {
+    let digit = number % 10;
+    if (digit > maxDigit) {
+        maxDigit = digit;
+    }
+    number1 = Math.floor(number1 / 10);
+}
+
+console.log("Biggest digit:", maxDigit);
+
+//9
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
+let smallestPrime = null;
+let largestPrime = null;
+
+for (let i = 2; i <= 1000; i++) {
+    if (isPrime(i)) {
+        if (smallestPrime === null) {
+            smallestPrime = i;
+        }
+        largestPrime = i;
+    }
+}
+
+console.log("Smallest prime number within 1000:", smallestPrime);
+console.log("Largest prime number within 1000:", largestPrime);
+
+
+//10
+let number2 = 12321; 
+let original = number2;
+let reversed = 0;
+
+while (number2 > 0) {
+    let digit = number2 % 10;
+    reversed = reversed * 10 + digit;
+    number2 = Math.floor(number2 / 10);
+}
+
+if (original === reversed) {
+    console.log(original + " is a palindrome.");
+} else {
+    console.log(original + " is not a palindrome.");
+}
+
+
+//11
+let score = 78; 
+let grade = "";
+
+if (score < 0 || score > 100) {
+    grade = "Invalid score";
+} else if (score < 50) {
+    grade = "Poor";
+} else if (score < 70) {
+    grade = "Good";
+} else if (score < 90) {
+    grade = "Very Good";
+} else {
+    grade = "Excellent";
+}
+
+console.log("Student's grade:", grade);
+
+
+//12
+let result1 = 1;
+
+for (let i = 1; i <= 10; i++) {
+    result1 *= i;
+}
+
+console.log("Total permutations of 10 digits:", result1);
+
+//13
+let classAStudents = [
+    { id: 101, name: "Aarav", phone: "9876543210" },
+    { id: 102, name: "Bhavna", phone: "9876543211" },
+    { id: 103, name: "Chirag", phone: "9876543212" },
+    { id: 104, name: "Divya", phone: "9876543213" },
+    { id: 105, name: "Eshan", phone: "9876543214" },
+    { id: 106, name: "Farah", phone: "9876543215" },
+    { id: 107, name: "Gaurav", phone: "9876543216" },
+    { id: 108, name: "Harsha", phone: "9876543217" },
+    { id: 109, name: "Ishaan", phone: "9876543218" },
+    { id: 110, name: "Juhi", phone: "9876543219" }
+];
+
+console.log("First 10 students from Class A:");
+classAStudents.forEach(student => {
+    console.log(`ID: ${student.id}, Name: ${student.name}, Phone: ${student.phone}`);
+});
+
+//14
+let userList = ["Aarav", "Bhavna", "Chirag", "Divya", "Eshan", "Farah", "Gaurav", "Harsha", "Ishaan", "Juhi"];
+let userToCheck = "Divya"; 
+
+if (userList.includes(userToCheck)) {
+    console.log(userToCheck + " is present in the list.");
+} else {
+    console.log(userToCheck + " is NOT present in the list.");
+}
+
+//15
+for (let i = 1; i <= 10; i++) {
+    let evenNumber = i * 2;
+    let binary = "";
+
+    
+    let num = evenNumber;
+    while (num > 0) {
+        binary = (num % 2) + binary;
+        num = Math.floor(num / 2);
+    }
+
+    console.log(`Even number: ${evenNumber}, Binary: ${binary}`);
+}
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Welcome Bro</h1>
+</body>
+</html>
