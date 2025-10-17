@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1
+        function swapFirstAndLast(arr) {
+    let firstIndex = 0;
+    let lastIndex = arr.length - 1;
+    let firstValue = arr[firstIndex];
+    let lastValue = arr[lastIndex];
+    let temp;
+    temp = firstValue;
+    arr[firstIndex] = lastValue;
+    arr[lastIndex] = temp;
+    return arr;
+}
+let numbers = [10, 20, 30, 40, 50];
+console.log("Before swap:", numbers);
+
+let swappedArray = swapFirstAndLast(numbers);
+console.log("After swap:", swappedArray);
+
+
+//2
+function factorial(num) {
+  let result = 1;
+  for (let i = 2; i <= num; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+function sumSeries(limit) {
+  let sum = 0;
+  for (let i = 1; i <= limit; i++) {
+    sum += factorial(i) / i;
+  }
+  return sum;
+}
+
+const total = sumSeries(10);
+console.log("Sum of the series is:", total);
+
+
+
+//3
+let name = "Srujan"; // Replace with your actual name
+let maxChar = name[0];
+let maxAscii = name.charCodeAt(0);
+
+for (let i = 1; i < name.length; i++) {
+    let ascii = name.charCodeAt(i);
+    if (ascii > maxAscii) {
+        maxAscii = ascii;
+        maxChar = name[i];
+    }
+}
+
+console.log(`Character with largest ASCII value: '${maxChar}' (${maxAscii})`);
+
+
+//4
+function isPerfect(num) {
+    let sum = 0;
+    for (let i = 1; i < num; i++) {
+        if (num % i === 0) {
+            sum += i;
+        }
+    }
+    return sum === num;
+}
+
+console.log("Perfect numbers between 1 and 100:");
+for (let i = 1; i <= 100; i++) {
+    if (isPerfect(i)) {
+        console.log(i);
+    }
+}
+
+//5
+function isAnagram(str1, str2) {
+    // Remove spaces and convert to lowercase
+    str1 = str1.replace(/\s+/g, '').toLowerCase();
+    str2 = str2.replace(/\s+/g, '').toLowerCase();
+
+    // If lengths differ, not an anagram
+    if (str1.length !== str2.length) return false;
+
+    // Create frequency maps
+    let count1 = {};
+    let count2 = {};
+
+    for (let char of str1) {
+        count1[char] = (count1[char] || 0) + 1;
+    }
+
+    for (let char of str2) {
+        count2[char] = (count2[char] || 0) + 1;
+    }
+
+    // Compare frequency maps
+    for (let key in count1) {
+        if (count1[key] !== count2[key]) return false;
+    }
+
+    return true;
+}
+
+// Example usage
+let string1 = "listen";
+let string2 = "silent";
+
+if (isAnagram(string1, string2)) {
+    console.log(`"${string1}" and "${string2}" are anagrams.`);
+} else {
+    console.log(`"${string1}" and "${string2}" are NOT anagrams.`);
+}
+
+//6
+function isPerfectSquare(n) {
+    let root = Math.sqrt(n);
+    return root === Math.floor(root);
+}
+
+function isArmstrong(n) {
+    let digits = n.toString().split('');
+    let power = digits.length;
+    let sum = digits.reduce((acc, digit) => acc + Math.pow(Number(digit), power), 0);
+    return sum === n;
+}
+
+console.log("Perfect Squares and Armstrong Numbers between 1 and 100:");
+
+for (let i = 1; i <= 100; i++) {
+    if (isPerfectSquare(i) || isArmstrong(i)) {
+        console.log(i);
+    }
+}
+
+//7
+function generatePascalsTriangle(n) {
+  const triangle = [];
+
+  for (let row = 0; row < n; row++) {
+    triangle[row] = [1]; // First element is always 1
+
+    for (let col = 1; col < row; col++) {
+      // Each element is the sum of the two elements above it
+      triangle[row][col] = triangle[row - 1][col - 1] + triangle[row - 1][col];
+    }
+
+    if (row > 0) {
+      triangle[row].push(1); // Last element is always 1
+    }
+  }
+
+  // Print the triangle
+  for (let row of triangle) {
+    console.log(row.join(' '));
+  }
+}
+
+// Example: Print first 5 rows
+generatePascalsTriangle(5);
+
+
+//8
+function calculateWindSpeed(distance, time) {
+    if (time <= 0) {
+        console.log("Time must be greater than zero.");
+        return;
+    }
+
+    let speed = distance / time; // Speed in meters per second or km/h
+    console.log(`Wind speed is ${speed.toFixed(2)} units per time.`);
+}
+
+// Example usage
+let distanceInMeters = 500; // e.g., wind traveled 500 meters
+let timeInSeconds = 50;     // e.g., took 50 seconds
+
+calculateWindSpeed(distanceInMeters, timeInSeconds);
+
+
+//9
+function calculateEarthRotationsPerYear() {
+  const siderealDayHours = 23 + (56 / 60) + (4 / 3600); // 23h 56m 4s
+  const hoursInYear = 365.25 * 24; // Average year length including leap years
+  const rotations = hoursInYear / siderealDayHours;
+
+  return rotations.toFixed(2); // Round to 2 decimal places
+}
+
+const rotations = calculateEarthRotationsPerYear();
+console.log("Earth completes approximately", rotations, "rotations per year.");
+
+
+    </script>
+</head>
+<body>
+    <h1>Welcome Back Bro</h1>
+</body>
+</html>
